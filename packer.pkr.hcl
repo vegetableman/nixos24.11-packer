@@ -40,11 +40,13 @@ source "qemu" "nixos" {
   headless = true
   ssh_username = "nixos"
   ssh_private_key_file   = "./scripts/vagrant"
-  # IMPORTANT:This is the time Packer waits BEFORE sending any boot commands
+  # IMPORTANT: This is the time Packer waits BEFORE sending any boot commands
   # SSH failures if not set
   boot_wait              = "30s"
   ssh_handshake_attempts = 100
+  # Timeout for individual SSH operations/connections
   ssh_timeout            = "15m"
+  # Total time Packer will wait for the SSH service to become available initially
   ssh_wait_timeout       = "15m"
   # http_directory is the directory containing the files to be served over HTTP
   http_directory       = "scripts"
